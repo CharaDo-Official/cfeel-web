@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from '../../components/Header'; // パスは構成に合わせて調整してください
-import { Breadcrumb } from '../../components/Breadcrumb';
+import { Header } from '@/components/layout/Header';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Link } from 'react-router-dom';
 
 // キャラクターデータの型定義

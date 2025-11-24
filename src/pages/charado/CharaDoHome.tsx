@@ -1,6 +1,6 @@
 import React from 'react';
-import { Header } from '../components/Header';
-import { Breadcrumb } from '../components/Breadcrumb';
+import { Header } from '@/components/layout/Header';
+import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { Link } from 'react-router-dom';
 
 export const CharaDoPage: React.FC = () => {

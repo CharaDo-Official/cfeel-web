@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { TopPage } from './pages/TopPage';
-import { CharaDoPage } from './pages/CharaDoPage';
-import { CharacterPage } from './pages/charado/CharacterPage';
+import { TopPage } from '@/pages/Home';
+import { CharaDoPage } from '@/pages/charado/CharaDoHome';
+import { CharacterPage } from '@/pages/charado/Character';
 
 function App() {
 	return (

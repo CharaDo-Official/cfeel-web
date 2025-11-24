@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logoImg from '@/assets/cfeel_logo_header.png';
 
 export const Header: React.FC = () => {
 	return (
@@ -7,7 +8,7 @@ export const Header: React.FC = () => {
 			<div className="container header-inner">
 				{/* ロゴ: publicフォルダに画像を置いた想定 */}
 				<Link to="/" className="logo">
-					<img src="/cfeel_logo_header.png" alt="CFEEL" />
+					<img src={logoImg} alt="CFEEL" />
 				</Link>
 
 				{/* ハンバーガーメニュー用のチェックボックスロジックはそのまま維持 */}
