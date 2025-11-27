@@ -1,35 +1,54 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logoImg from '@/assets/cfeel_logo_header.png';
+import { MAIN_NAVIGATION, CONTACT_LINK } from '@/constants/navigation';
 
-const menuItems = [
-  { label: 'Home', path: '/charado' },
-  { label: 'キャラクター', path: '/charado/character' },
-  { label: 'プラン', path: '/charado/plan' },
-  { label: 'ポリシー', path: '/charado/policy' },
-	{ label: '利用規約', path: '/charado/terms' },
-  { label: '特定商取引法に基づく表記', path: '/charado/law' }
-];
+// --- Style Constants ---
+const STYLES = {
+	// Desktop
+	desktopLink: "relative py-2 text-sm font-medium transition-colors hover:text-primary flex items-center gap-1",
+	activeLink: "text-primary after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-primary",
+	inactiveLink: "text-slate-500 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full",
+	dropdownPanel: "absolute left-1/2 top-full mt-4 w-64 -translate-x-1/2 rounded-lg border border-slate-100 bg-white p-2 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0",
+	dropdownItem: "block rounded px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap",
+	
+	// Mobile
+	mobileMenuOverlay: "fixed inset-0 top-0 z-40 bg-white md:hidden transition-transform duration-300 ease-in-out",
+	hamburgerLine: "absolute left-0 w-full h-0.5 bg-current transform transition-all duration-300 ease-in-out",
+	mobileLink: "text-lg font-medium text-slate-800 hover:text-primary",
+	mobileAccordionBtn: "flex w-full items-center justify-between text-lg font-medium text-slate-800",
+	mobileAccordionContent: "overflow-hidden transition-all duration-300",
+	mobileSubLink: "text-base text-slate-500 hover:text-primary"
+};
 
 export const Header: React.FC = () => {
-const { pathname } = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isMobileCharaDoOpen, setIsMobileCharaDoOpen] = useState(false);
-  
-  const [prevPathname, setPrevPathname] = useState(pathname);
+	const { pathname } = useLocation();
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	
+	// Mobile Accordion States
+	// Using a map to track open state of each menu item by label
+	const [openAccordions, setOpenAccordions] = useState<Record<string, boolean>>({});
 
-  if (pathname !== prevPathname) {
-    setPrevPathname(pathname);
-    setIsMenuOpen(false);
-    setIsMobileCharaDoOpen(false);
-  }
+	const [prevPathname, setPrevPathname] = useState(pathname);
 
-  // 現在地のリンク判定ヘルパー
-  const isCurrent = (path: string) => pathname.startsWith(path);
-	// 共通クラス
-	const desktopLinkClass = "relative py-2 text-sm font-medium transition-colors hover:text-primary";
-	const activeClass = "text-primary after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:bg-primary";
-	const inactiveClass = "text-slate-500 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full";
+	// Close menu on route change (State Derivation Pattern)
+	if (pathname !== prevPathname) {
+		setPrevPathname(pathname);
+		setIsMenuOpen(false);
+		setOpenAccordions({});
+	}
+
+	// Helpers
+	const isCurrent = (path: string) => pathname.startsWith(path);
+	const getLinkClass = (path: string) =>
+		`${isCurrent(path) ? STYLES.activeLink : STYLES.inactiveLink} ${STYLES.desktopLink}`;
+
+	const toggleAccordion = (label: string) => {
+		setOpenAccordions(prev => ({
+			...prev,
+			[label]: !prev[label]
+		}));
+	};
 
 	return (
 		<header className="fixed top-0 left-0 z-50 w-full border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
@@ -42,45 +61,40 @@ const { pathname } = useLocation();
 
 				{/* --- Desktop Navigation (PC) --- */}
 				<nav className="hidden md:flex items-center gap-8">
-					{/* CharaDo Dropdown */}
-					<div className="group relative">
-						<Link
-							to="/charado"
-							className={`${isCurrent('/charado') ? activeClass : inactiveClass} ${desktopLinkClass}`}
-						>
-							CharaDo
-						</Link>
-						{/* Dropdown Panel */}
-						<div className="absolute left-1/2 top-full mt-4 w-64 -translate-x-1/2 rounded-lg border border-slate-100 bg-white p-2 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0">
-							<div className="flex flex-col gap-1">
-								{menuItems.map((item) => (
-									<Link
-										key={item.label}
-										to={item.path}
-										className="block rounded px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap"
-									>
-										{item.label}
-									</Link>
-								))}
-							</div>
+					{MAIN_NAVIGATION.map((item) => (
+						<div key={item.label} className="group relative">
+							<Link to={item.path} className={getLinkClass(item.path)}>
+								{item.label}
+								{item.children && <span className="text-[10px] opacity-50 group-hover:opacity-100 transition-opacity">▼</span>}
+							</Link>
+							
+							{/* Dropdown Panel (Only if children exist) */}
+							{item.children && (
+								<div className={STYLES.dropdownPanel}>
+									<div className="flex flex-col gap-1">
+										{item.children.map((child) => (
+											<Link
+												key={child.label}
+												to={child.path}
+												className={STYLES.dropdownItem}
+											>
+												{child.label}
+											</Link>
+										))}
+									</div>
+								</div>
+							)}
 						</div>
-					</div>
-
-					<Link to="/about" className={`${isCurrent('/about') ? activeClass : inactiveClass} ${desktopLinkClass}`}>
-						About Us
-					</Link>
-					<Link to="/support" className={`${isCurrent('/support') ? activeClass : inactiveClass} ${desktopLinkClass}`}>
-						Support
-					</Link>
+					))}
 				</nav>
 
 				{/* --- Desktop CTA Button --- */}
 				<div className="hidden md:block">
 					<Link
-						to="/contact"
+						to={CONTACT_LINK.path}
 						className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-slate-800 hover:shadow hover:-translate-y-0.5"
 					>
-						Contact
+						{CONTACT_LINK.label}
 					</Link>
 				</div>
 
@@ -91,65 +105,64 @@ const { pathname } = useLocation();
 					aria-label="Toggle menu"
 				>
 					<div className="relative w-6 h-5">
-						<span className={`absolute left-0 w-full h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? 'top-2.5 rotate-45' : 'top-0'}`} />
-						<span className={`absolute left-0 w-full h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-0' : 'top-2.5'}`} />
-						<span className={`absolute left-0 w-full h-0.5 bg-current transform transition-all duration-300 ease-in-out ${isMenuOpen ? 'top-2.5 -rotate-45' : 'top-5'}`} />
+						<span className={`${STYLES.hamburgerLine} ${isMenuOpen ? 'top-2.5 rotate-45' : 'top-0'}`} />
+						<span className={`${STYLES.hamburgerLine} ${isMenuOpen ? 'opacity-0' : 'top-2.5'}`} />
+						<span className={`${STYLES.hamburgerLine} ${isMenuOpen ? 'top-2.5 -rotate-45' : 'top-5'}`} />
 					</div>
 				</button>
 			</div>
 
 			{/* --- Mobile Navigation Menu (Overlay) --- */}
 			<div
-				className={`fixed inset-0 top-0 z-40 bg-white md:hidden transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-					}`}
+				className={`${STYLES.mobileMenuOverlay} ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
 				style={{ top: '80px', height: 'calc(100vh - 80px)' }}
 			>
 				<div className="flex flex-col h-full overflow-y-auto px-6 py-8 pb-20">
 					<nav className="flex flex-col space-y-6">
-
-						{/* Mobile: CharaDo (Accordion) */}
-						<div>
-							<button
-								onClick={() => setIsMobileCharaDoOpen(!isMobileCharaDoOpen)}
-								className="flex w-full items-center justify-between text-lg font-medium text-slate-800"
-							>
-								CharaDo
-								<span className={`transform transition-transform duration-300 ${isMobileCharaDoOpen ? 'rotate-180' : ''}`}>
-									▼
-								</span>
-							</button>
-
-							{/* Accordion Content */}
-							<div className={`overflow-hidden transition-all duration-300 ${isMobileCharaDoOpen ? 'max-h-60 mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
-								<div className="flex flex-col space-y-4 border-l-2 border-slate-100 pl-4 ml-1">
-									{menuItems.map((item) => (
-										<Link
-											key={item.label}
-											to={item.path}
-											className="text-base text-slate-500 hover:text-primary"
+						{MAIN_NAVIGATION.map((item) => (
+							<div key={item.label}>
+								{item.children ? (
+									// Accordion Item
+									<div>
+										<button
+											onClick={() => toggleAccordion(item.label)}
+											className={STYLES.mobileAccordionBtn}
 										>
 											{item.label}
-										</Link>
-									))}
-								</div>
+											<span className={`transform transition-transform duration-300 ${openAccordions[item.label] ? 'rotate-180' : ''}`}>
+												▼
+											</span>
+										</button>
+										<div className={`${STYLES.mobileAccordionContent} ${openAccordions[item.label] ? 'max-h-80 mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
+											<div className="flex flex-col space-y-4 border-l-2 border-slate-100 pl-4 ml-1">
+												{item.children.map((child) => (
+													<Link
+														key={child.label}
+														to={child.path}
+														className={STYLES.mobileSubLink}
+													>
+														{child.label}
+													</Link>
+												))}
+											</div>
+										</div>
+									</div>
+								) : (
+									// Simple Link Item
+									<Link to={item.path} className={STYLES.mobileLink}>
+										{item.label}
+									</Link>
+								)}
 							</div>
-						</div>
-
-						<Link to="/about" className="text-lg font-medium text-slate-800 hover:text-primary">
-							About Us
-						</Link>
-
-						<Link to="/support" className="text-lg font-medium text-slate-800 hover:text-primary">
-							Support
-						</Link>
+						))}
 
 						<hr className="border-slate-100 my-4" />
 
 						<Link
-							to="/contact"
+							to={CONTACT_LINK.path}
 							className="flex w-full items-center justify-center rounded-lg bg-primary py-3 text-base font-bold text-white shadow-md active:scale-95 transition-transform"
 						>
-							Contact Us
+							{CONTACT_LINK.label} Us
 						</Link>
 					</nav>
 				</div>

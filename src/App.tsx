@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Home } from '@/pages/Home';
-import { About } from '@/pages/About';
+import { AboutHome } from '@/pages/aboutus/Home';
+import { Privacy } from '@/pages/aboutus/Privacy';
 import { CharaDoHome } from '@/pages/charado/CharaDoHome';
 import { Character } from '@/pages/charado/Character';
 import { Plan } from '@/pages/charado/Plan';
@@ -17,7 +18,8 @@ function App() {
 			<Routes>
 				{/* ルートパス (/) にアクセスしたら Home を表示 */}
 				<Route path="/" element={<Home />} />
-				<Route path="/about" element={<About />} />
+				<Route path="/aboutus" element={<AboutHome />} />
+				<Route path="/aboutus/privacy" element={<Privacy />} />
 
 				{/* CharaDo 関連ページ */}
 				<Route path="/charado" element={<CharaDoHome />} />	

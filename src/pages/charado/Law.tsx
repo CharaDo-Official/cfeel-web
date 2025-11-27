@@ -11,6 +11,7 @@ export const Law: React.FC = () => {
 					<h1 className="text-xl font-bold text-slate-900">
 						特定商取引法に基づく表記
 					</h1>
+					<p className="text-sm text-slate-500">CharaDo(以下「本サービス」)は、特定商取引法に基づく表記を遵守しています。</p>
 				</div>
 
 				<div className="w-full border-t border-slate-200">

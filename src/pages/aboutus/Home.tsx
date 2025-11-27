@@ -1,7 +1,7 @@
 import React from 'react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 
-export const About: React.FC = () => {
+export const AboutHome: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-slate-50 pb-20">
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'About Us' }]} />
