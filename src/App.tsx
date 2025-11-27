@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { TopPage } from '@/pages/Home';
-import { CharaDoPage } from '@/pages/charado/CharaDoHome';
-import { CharacterPage } from '@/pages/charado/Character';
+import { Home } from '@/pages/Home';
+import { CharaDoHome } from '@/pages/charado/CharaDoHome';
+import { Character } from '@/pages/charado/Character';
 
 function App() {
 	return (
 		<Router>
 			<Routes>
-				{/* ルートパス (/) にアクセスしたら TopPage を表示 */}
-				<Route path="/" element={<TopPage />} />
+				{/* ルートパス (/) にアクセスしたら Home を表示 */}
+				<Route path="/" element={<Home />} />
 
 				{/* 例: /charado にアクセスした場合 */}
-				<Route path="/charado" element={<CharaDoPage />} />	
-				<Route path="/charado/character" element={<CharacterPage />} />
+				<Route path="/charado" element={<CharaDoHome />} />	
+				<Route path="/charado/character" element={<Character />} />
 			</Routes>
 		</Router>
 	);
