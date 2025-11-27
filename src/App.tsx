@@ -2,8 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Home } from '@/pages/Home';
-import { AboutHome } from '@/pages/aboutus/Home';
+import { Home as AboutHome } from '@/pages/aboutus/Home';
 import { Privacy } from '@/pages/aboutus/Privacy';
+import { Support } from '@/pages/Support';
 import { CharaDoHome } from '@/pages/charado/CharaDoHome';
 import { Character } from '@/pages/charado/Character';
 import { Plan } from '@/pages/charado/Plan';
@@ -20,6 +21,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/aboutus" element={<AboutHome />} />
 				<Route path="/aboutus/privacy" element={<Privacy />} />
+				<Route path="/support" element={<Support />} />
 
 				{/* CharaDo 関連ページ */}
 				<Route path="/charado" element={<CharaDoHome />} />	

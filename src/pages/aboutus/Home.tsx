@@ -1,7 +1,8 @@
 import React from 'react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 
-export const AboutHome: React.FC = () => {
+// Change export name from AboutHome to Home to match the import in App.tsx
+export const Home: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-slate-50 pb-20">
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'About Us' }]} />
@@ -185,4 +186,3 @@ export const AboutHome: React.FC = () => {
 		</div>
 	);
 };
-
