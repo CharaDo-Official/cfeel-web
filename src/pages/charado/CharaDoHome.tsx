@@ -4,95 +4,120 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 
 export const CharaDoHome: React.FC = () => {
 	return (
-		<div className="min-h-screen bg-slate-50 pb-20">
+		<div className="min-h-screen bg-white pb-20 font-sans text-slate-800">
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'CharaDo' }]} />
 
-			{/* Product Hero */}
-			<section className="relative overflow-hidden bg-white py-20 lg:py-28">
-				<div className="container mx-auto max-w-5xl px-6 text-center">
-					<span className="mb-4 inline-block rounded-full bg-blue-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-blue-600">
-						Productivity App
-					</span>
-					<h1 className="mb-6 text-4xl font-bold tracking-tight text-primary md:text-6xl">
-						CharaDo
+			{/* Hero Section - Simple & Clean */}
+			<section className="pt-20 pb-32 md:pt-32 md:pb-40 px-6">
+				<div className="container mx-auto max-w-5xl text-center">
+					<h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+						タスク管理は<br className="md:hidden" />
+						<span className="text-primary">大好きなキャラ</span>と一緒に。
 					</h1>
-					<p className="mx-auto mb-10 max-w-2xl text-lg text-slate-500">
-						タスク管理は大好きなキャラと一緒に！（or 大切な人と一緒に！）<br />
-						アシスタントがタスクを提案してくれる新感覚デスクトップマスコット
+					
+					<p className="text-xl text-slate-400 font-bold mb-12 tracking-wide">
+						（or 大切な人と一緒に！）
 					</p>
 
-					<div className="flex justify-center gap-4">
-						<button className="rounded-lg bg-primary px-8 py-3 font-semibold text-white transition-transform hover:scale-105 hover:bg-slate-800">
+					<p className="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed font-medium">
+						アシスタントがタスクを提案してくれる<br />
+						新感覚デスクトップマスコット
+					</p>
+
+					<div className="flex flex-col sm:flex-row justify-center gap-5">
+						<button className="px-10 py-4 bg-slate-900 text-white font-bold rounded-full hover:bg-slate-700 transition-colors shadow-lg">
 							Download Now
 						</button>
-						<Link to="/contact" className="rounded-lg px-8 py-3 font-semibold text-slate-600 hover:text-primary">
-							Contact Sales
+						<Link to="/charado/plan" className="px-10 py-4 bg-white text-slate-700 font-bold rounded-full border border-slate-200 hover:border-slate-400 hover:bg-slate-50 transition-colors">
+							View Plans
 						</Link>
 					</div>
 				</div>
-
-				{/* Decorative Gradient Line at bottom */}
-				<div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
 			</section>
 
-			{/* Features Grid */}
-			<section className="container mx-auto mt-16 max-w-7xl px-6">
-				<div className="mb-12 text-center">
-					<h2 className="text-2xl font-bold text-primary">Key Features</h2>
-					<p className="mt-2 text-slate-500">モチベーションを維持する3つのコア機能</p>
-				</div>
-
-				<div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-
-					{/* Feature 1: Task Proposal */}
-					<div className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-						<div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-2xl text-blue-600 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-							📅
-						</div>
-						<h3 className="mb-3 text-xl font-bold text-primary">やるべきタスクをアプリが提案</h3>
-						<p className="mb-6 text-sm leading-relaxed text-slate-500">
-							CharaDoでは、登録されたタスクを重要度と緊急度の2つの要素から管理します。やるべきタスクをちょうどいいときに提案するので、後回しになりがちなタスクも効率的に進めることができます。
-						</p>
+			{/* Features Section - Clean Alternating Layout */}
+			<section className="py-20 bg-slate-50/50">
+				<div className="container mx-auto px-6 max-w-6xl">
+					<div className="text-center mb-24">
+						<h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Key Features</h2>
+						<p className="text-slate-500">モチベーションを維持する3つのコア機能</p>
 					</div>
 
-					{/* Feature 2: Assistant Support */}
-					<div className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-						<div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100 text-2xl text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors">
-							👤
+					<div className="space-y-32">
+						{/* Feature 01 */}
+						<div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+							<div className="w-full md:w-1/2 flex justify-center">
+								<div className="w-64 h-64 bg-blue-50 rounded-[2.5rem] flex items-center justify-center text-8xl text-blue-500">
+									📅
+								</div>
+							</div>
+							<div className="w-full md:w-1/2">
+								<span className="text-blue-500 font-bold tracking-wider text-sm mb-2 block">01. TASK MANAGEMENT</span>
+								<h3 className="text-3xl font-bold text-slate-900 mb-6">
+									やるべきタスクを<br/>アプリが提案
+								</h3>
+								<p className="text-slate-600 leading-loose text-lg">
+									CharaDoでは、登録されたタスクを重要度と緊急度の2つの要素から管理します。やるべきタスクをちょうどいいときに提案するので、後回しになりがちなタスクも効率的に進めることができます。
+								</p>
+							</div>
 						</div>
-						<h3 className="mb-3 text-xl font-bold text-primary">アシスタントがあなたをサポート</h3>
-						<p className="mb-6 text-sm leading-relaxed text-slate-500">
-							CharaDoではあなたのアシスタントとして、猫耳の少女「紬（つむぎ）」と黒猫の「ノア」があなたのタスク管理をサポートしてくれます。また、CharaDoでは、あなたの好きなキャラクターや大切な人に、アシスタントになってもらうこともできます。
-						</p>
-						<Link to="/charado/character" className="inline-flex items-center text-sm font-semibold text-primary decoration-slate-300 underline-offset-4 hover:underline">
-							View Characters <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-						</Link>
-					</div>
 
-					{/* Feature 3: Desktop Widget */}
-					<div className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-						<div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-2xl text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-							🖥️
+						{/* Feature 02 */}
+						<div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-20">
+							<div className="w-full md:w-1/2 flex justify-center">
+								<div className="w-64 h-64 bg-amber-50 rounded-[2.5rem] flex items-center justify-center text-8xl text-amber-500">
+									👤
+								</div>
+							</div>
+							<div className="w-full md:w-1/2">
+								<span className="text-amber-500 font-bold tracking-wider text-sm mb-2 block">02. YOUR PARTNER</span>
+								<h3 className="text-3xl font-bold text-slate-900 mb-6">
+									アシスタントが<br/>あなたをサポート
+								</h3>
+								<p className="text-slate-600 leading-loose text-lg mb-8">
+									CharaDoではあなたのアシスタントとして、猫耳の少女「紬（つむぎ）」と黒猫の「ノア」があなたのタスク管理をサポートしてくれます。
+								</p>
+								<Link to="/charado/character" className="inline-flex items-center font-bold text-amber-600 hover:text-amber-700 group">
+									<span className="border-b-2 border-amber-200 group-hover:border-amber-500 transition-colors">キャラクターを見る</span>
+									<svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+									</svg>
+								</Link>
+							</div>
 						</div>
-						<h3 className="mb-3 text-xl font-bold text-primary">アプリを開かなくても、いつでもタスクリストが確認できる</h3>
-						<p className="mb-6 text-sm leading-relaxed text-slate-500">
-							アシスタントと一緒にタスクリストが常にデスクトップにいるので、タスクリストを見落とすこともありません。もちろん、忙しいときにはアシスタントに席を外してもらうこともできます。
-						</p>
-					</div>
 
+						{/* Feature 03 */}
+						<div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+							<div className="w-full md:w-1/2 flex justify-center">
+								<div className="w-64 h-64 bg-emerald-50 rounded-[2.5rem] flex items-center justify-center text-8xl text-emerald-500">
+									🖥️
+								</div>
+							</div>
+							<div className="w-full md:w-1/2">
+								<span className="text-emerald-500 font-bold tracking-wider text-sm mb-2 block">03. DESKTOP WIDGET</span>
+								<h3 className="text-3xl font-bold text-slate-900 mb-6">
+									アプリを開かなくても<br/>いつでも確認できる
+								</h3>
+								<p className="text-slate-600 leading-loose text-lg">
+									アシスタントと一緒にタスクリストが常にデスクトップにいるので、タスクリストを見落とすこともありません。もちろん、忙しいときにはアシスタントに席を外してもらうこともできます。
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
-			{/* Bottom CTA */}
-			<section className="container mx-auto mt-20 max-w-5xl px-6">
-				<div className="overflow-hidden rounded-3xl bg-primary px-6 py-16 text-center text-white shadow-2xl md:px-12">
-					<h2 className="mb-6 text-3xl font-bold md:text-4xl">Ready to focus?</h2>
-					<p className="mx-auto mb-10 max-w-xl text-slate-300">
-						今すぐダウンロードして、理想のタスク管理体験を始めましょう。<br />
-						あなたの生活を変えるパートナーが待っています。
+			{/* CTA Section - Simple */}
+			<section className="py-32 px-6">
+				<div className="container mx-auto max-w-4xl text-center">
+					<h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 tracking-tight">
+						Ready to focus?
+					</h2>
+					<p className="text-xl text-slate-500 mb-12 max-w-2xl mx-auto">
+						今すぐダウンロードして、<br className="md:hidden" />理想のタスク管理体験を始めましょう。
 					</p>
-					<button className="rounded-full bg-white px-8 py-3 font-bold text-primary hover:bg-slate-100 transition-colors">
-						Get Started for Free
+					<button className="px-12 py-4 bg-primary text-white font-bold text-lg rounded-full shadow-xl hover:bg-blue-600 hover:-translate-y-1 transition-all">
+						Get Started
 					</button>
 				</div>
 			</section>
