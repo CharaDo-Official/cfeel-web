@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logoImg from '@/assets/cfeel_logo_header.png';
 
+const menuItems = [
+  { label: 'Home', path: '/charado' },
+  { label: 'Character', path: '/charado/character' },
+  { label: 'Plan', path: '/charado/plan' },
+  { label: 'Policy', path: '/charado/policy' },
+  { label: '特定商取引法に基づく表記', path: '/charado/law' }
+];
+
 export const Header: React.FC = () => {
 const { pathname } = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,13 +52,13 @@ const { pathname } = useLocation();
 						{/* Dropdown Panel */}
 						<div className="absolute left-1/2 top-full mt-4 w-48 -translate-x-1/2 rounded-lg border border-slate-100 bg-white p-2 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0">
 							<div className="flex flex-col gap-1">
-								{['Home', 'Character', 'Plan', 'Policy'].map((item) => (
+								{menuItems.map((item) => (
 									<Link
-										key={item}
-										to={`/charado/${item.toLowerCase() === 'home' ? '' : item.toLowerCase()}`}
+										key={item.label}
+										to={item.path}
 										className="block rounded px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-primary transition-colors"
 									>
-										{item}
+										{item.label}
 									</Link>
 								))}
 							</div>
@@ -113,13 +121,13 @@ const { pathname } = useLocation();
 							{/* Accordion Content */}
 							<div className={`overflow-hidden transition-all duration-300 ${isMobileCharaDoOpen ? 'max-h-60 mt-4 opacity-100' : 'max-h-0 opacity-0'}`}>
 								<div className="flex flex-col space-y-4 border-l-2 border-slate-100 pl-4 ml-1">
-									{['Home', 'Character', 'Plan', 'Policy'].map((item) => (
+									{menuItems.map((item) => (
 										<Link
-											key={item}
-											to={`/charado/${item.toLowerCase() === 'home' ? '' : item.toLowerCase()}`}
+											key={item.label}
+											to={item.path}
 											className="text-base text-slate-500 hover:text-primary"
 										>
-											{item}
+											{item.label}
 										</Link>
 									))}
 								</div>
