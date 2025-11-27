@@ -4,6 +4,12 @@ export interface MenuItem {
 	children?: MenuItem[];
 }
 
+export interface SocialLink {
+	label: string;
+	url: string;
+	iconType: 'twitter' | 'github';
+}
+
 export const MAIN_NAVIGATION: MenuItem[] = [
 	{
 		label: 'CharaDo',
@@ -36,3 +42,15 @@ export const CONTACT_LINK = {
 	path: '/contact'
 };
 
+export const SOCIAL_LINKS: SocialLink[] = [
+	{
+		label: 'X (Twitter)',
+		url: 'https://x.com/CharaDoOfficial',
+		iconType: 'twitter'
+	},
+	{
+		label: 'GitHub',
+		url: 'https://github.com/CharaDo-Official',
+		iconType: 'github'
+	}
+];
