@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { DesktopMascot } from '@/components/ui/DesktopMascot';
 
 export const CharaDoHome: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-white pb-20 font-sans text-slate-800">
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'CharaDo' }]} />
+			<DesktopMascot />
 
 			{/* Hero Section - Simple & Clean */}
 			<section className="pt-20 pb-32 md:pt-32 md:pb-40 px-6">
