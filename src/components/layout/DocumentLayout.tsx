@@ -18,7 +18,7 @@ export const DocumentLayout: React.FC<DocumentLayoutProps> = ({
 		<div className="min-h-screen bg-white pb-20">
 			<Breadcrumb items={breadcrumbItems} />
 
-			<section className="w-full px-4 py-8 md:px-8">
+			<section className="w-full px-4 py-8 md:px-16">
 				<div className="mb-8">
 					<h1 className="text-xl font-bold text-slate-900 mb-2">
 						{title}
