@@ -4,9 +4,10 @@ import logoImg from '@/assets/cfeel_logo_header.png';
 
 const menuItems = [
   { label: 'Home', path: '/charado' },
-  { label: 'Character', path: '/charado/character' },
-  { label: 'Plan', path: '/charado/plan' },
-  { label: 'Policy', path: '/charado/policy' },
+  { label: 'キャラクター', path: '/charado/character' },
+  { label: 'プラン', path: '/charado/plan' },
+  { label: 'ポリシー', path: '/charado/policy' },
+	{ label: '利用規約', path: '/charado/terms' },
   { label: '特定商取引法に基づく表記', path: '/charado/law' }
 ];
 
@@ -50,13 +51,13 @@ const { pathname } = useLocation();
 							CharaDo
 						</Link>
 						{/* Dropdown Panel */}
-						<div className="absolute left-1/2 top-full mt-4 w-48 -translate-x-1/2 rounded-lg border border-slate-100 bg-white p-2 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0">
+						<div className="absolute left-1/2 top-full mt-4 w-64 -translate-x-1/2 rounded-lg border border-slate-100 bg-white p-2 shadow-xl opacity-0 invisible transform translate-y-2 transition-all duration-300 ease-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0">
 							<div className="flex flex-col gap-1">
 								{menuItems.map((item) => (
 									<Link
 										key={item.label}
 										to={item.path}
-										className="block rounded px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-primary transition-colors"
+										className="block rounded px-4 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-primary transition-colors whitespace-nowrap"
 									>
 										{item.label}
 									</Link>

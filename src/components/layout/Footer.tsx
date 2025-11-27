@@ -42,7 +42,6 @@ export const Footer: React.FC = () => {
 							<li><Link to="/charado/character" className="hover:text-primary transition-colors">Characters</Link></li>
 							<li><Link to="/charado/plan" className="hover:text-primary transition-colors">Smart Plan</Link></li>
 							<li><Link to="/charado/policy" className="hover:text-primary transition-colors">Policy</Link></li>
-							<li><Link to="/charado/law" className="hover:text-primary transition-colors">Law</Link></li>
 						</ul>
 					</div>
 
@@ -56,7 +55,15 @@ export const Footer: React.FC = () => {
 						</ul>
 					</div>
 
-
+					{/* Legal Links */}
+					<div>
+						<h3 className="font-bold text-slate-900 mb-4">Legal</h3>
+						<ul className="space-y-3 text-sm">
+							<li><Link to="/charado/law" className="hover:text-primary transition-colors">特定商取引法に関する表記</Link></li>
+							<li><Link to="/charado/terms" className="hover:text-primary transition-colors">利用規約</Link></li>
+							<li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+						</ul>
+					</div>
 				</div>
 
 				<div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">

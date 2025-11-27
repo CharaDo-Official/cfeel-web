@@ -8,6 +8,7 @@ import { Character } from '@/pages/charado/Character';
 import { Plan } from '@/pages/charado/Plan';
 import { Policy } from '@/pages/charado/Policy';
 import { Law } from '@/pages/charado/Law';
+import { Terms } from '@/pages/charado/Terms';
 
 function App() {
 	return (
@@ -24,6 +25,7 @@ function App() {
 				<Route path="/charado/plan" element={<Plan />} />
 				<Route path="/charado/policy" element={<Policy />} />
 				<Route path="/charado/law" element={<Law />} />
+				<Route path="/charado/terms" element={<Terms />} />
 			</Routes>
 			<Footer />
 		</Router>
