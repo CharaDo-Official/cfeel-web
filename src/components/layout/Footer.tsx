@@ -1,28 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '@/assets/cfeel_logo_header.png';
-import { MAIN_NAVIGATION, CONTACT_LINK, SOCIAL_LINKS } from '@/constants/navigation';
+import { MAIN_NAVIGATION, SOCIAL_LINKS } from '@/constants/navigation';
 
 export const Footer: React.FC = () => {
 	const currentYear = new Date().getFullYear();
-
-	// Support列にContactを追加するためにデータを調整
-	const footerNav = MAIN_NAVIGATION.map(item => {
-		if (item.label === 'Support') {
-			return {
-				...item,
-				// FooterではSupportの下にContactも表示する（または単独カラムとして扱う）
-				// ここでは、MAIN_NAVIGATIONの構造（CharaDo, About Us, Support）をそのまま使うが、
-				// Supportにはchildrenがないため、強制的にリンクとして表示するか、
-				// あるいはカラム見出しとして扱い、その下にSupportリンクとContactリンクを置く形にする。
-				children: [
-					{ label: 'Support', path: item.path },
-					CONTACT_LINK
-				]
-			};
-		}
-		return item;
-	});
 
 	return (
 		<footer className="bg-white border-t border-slate-200 pt-16 pb-8 text-slate-600">
@@ -62,17 +44,25 @@ export const Footer: React.FC = () => {
 					</div>
 
 					{/* Link Sections */}
-					{footerNav.map((section) => (
+					{MAIN_NAVIGATION.map((section) => (
 						<div key={section.label}>
 							<h3 className="font-bold text-slate-900 mb-4">{section.label}</h3>
 							<ul className="space-y-3 text-sm">
-								{section.children?.map((link) => (
-									<li key={link.label}>
-										<Link to={link.path} className="hover:text-primary transition-colors">
-											{link.label}
+								{section.children ? (
+									section.children.map((link) => (
+										<li key={link.label}>
+											<Link to={link.path} className="hover:text-primary transition-colors">
+												{link.label}
+											</Link>
+										</li>
+									))
+								) : (
+									<li key={section.label}>
+										<Link to={section.path} className="hover:text-primary transition-colors">
+											{section.label}
 										</Link>
 									</li>
-								))}
+								)}
 							</ul>
 						</div>
 					))}

@@ -37,11 +37,6 @@ export const MAIN_NAVIGATION: MenuItem[] = [
 	}
 ];
 
-export const CONTACT_LINK = {
-	label: 'Contact',
-	path: '/contact'
-};
-
 export const SOCIAL_LINKS: SocialLink[] = [
 	{
 		label: 'X (Twitter)',
