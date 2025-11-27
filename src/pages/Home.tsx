@@ -33,7 +33,7 @@ export const Home: React.FC = () => {
 							See Products
 						</Link>
 						<Link
-							to="/about"
+							to="/aboutus"
 							className="w-full sm:w-auto rounded-full border border-slate-200 bg-white px-8 py-4 text-base font-medium text-slate-700 transition-all hover:border-primary hover:text-primary hover:-translate-y-1"
 						>
 							Learn More
