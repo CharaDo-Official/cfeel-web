@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Header } from '@/components/layout/Header';
 // トップページにパンくずリストは一般的に不要ですが、もし置くならここに配置
 // import { Breadcrumb } from '@/components/ui/Breadcrumb';
 
 export const Home: React.FC = () => {
 	return (
 		<div className="min-h-screen w-full bg-slate-50 selection:bg-primary selection:text-white">
-			<Header />
-
+			
 			{/* Hero Section */}
 			<section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
 				<div className="container mx-auto max-w-6xl px-6 text-center">

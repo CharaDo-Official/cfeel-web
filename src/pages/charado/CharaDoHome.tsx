@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Header } from '@/components/layout/Header';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 
 export const CharaDoHome: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-slate-50 pb-20">
-			<Header />
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'CharaDo' }]} />
 
 			{/* Product Hero */}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header } from '@/components/layout/Header';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 
 // データ定義（省略なし）
@@ -24,7 +23,6 @@ const characters = [
 export const Character: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-slate-50 pb-20">
-			<Header />
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'CharaDo', path: '/charado' }, { label: 'Character' }]} />
 
 			{/* Page Title */}
