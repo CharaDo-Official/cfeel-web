@@ -17,8 +17,8 @@ export const CharaDoHome: React.FC = () => {
 						CharaDo
 					</h1>
 					<p className="mx-auto mb-10 max-w-2xl text-lg text-slate-500">
-						推しと共に、日々を整える。<br />
-						キャラクター特化型タスク管理アプリケーション。
+						タスク管理は大好きなキャラと一緒に！（or 大切な人と一緒に！）<br />
+						アシスタントがタスクを提案してくれる新感覚デスクトップマスコット
 					</p>
 
 					<div className="flex justify-center gap-4">
@@ -44,46 +44,40 @@ export const CharaDoHome: React.FC = () => {
 
 				<div className="grid grid-cols-1 gap-8 md:grid-cols-3">
 
-					{/* Feature 1: Character */}
+					{/* Feature 1: Task Proposal */}
+					<div className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+						<div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-2xl text-blue-600 group-hover:bg-blue-500 group-hover:text-white transition-colors">
+							📅
+						</div>
+						<h3 className="mb-3 text-xl font-bold text-primary">やるべきタスクをアプリが提案</h3>
+						<p className="mb-6 text-sm leading-relaxed text-slate-500">
+							CharaDoでは、登録されたタスクを重要度と緊急度の2つの要素から管理します。やるべきタスクをちょうどいいときに提案するので、後回しになりがちなタスクも効率的に進めることができます。
+						</p>
+					</div>
+
+					{/* Feature 2: Assistant Support */}
 					<div className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 						<div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-amber-100 text-2xl text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-colors">
 							👤
 						</div>
-						<h3 className="mb-3 text-xl font-bold text-primary">Character</h3>
+						<h3 className="mb-3 text-xl font-bold text-primary">アシスタントがあなたをサポート</h3>
 						<p className="mb-6 text-sm leading-relaxed text-slate-500">
-							あなただけのパートナーを設定しましょう。タスクを完了するたびに、彼らがあなたを褒めてくれます。
+							CharaDoではあなたのアシスタントとして、猫耳の少女「紬（つむぎ）」と黒猫の「ノア」があなたのタスク管理をサポートしてくれます。また、CharaDoでは、あなたの好きなキャラクターや大切な人に、アシスタントになってもらうこともできます。
 						</p>
 						<Link to="/charado/character" className="inline-flex items-center text-sm font-semibold text-primary decoration-slate-300 underline-offset-4 hover:underline">
 							View Characters <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
 						</Link>
 					</div>
 
-					{/* Feature 2: Plan */}
-					<div className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-						<div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-2xl text-blue-600 group-hover:bg-blue-500 group-hover:text-white transition-colors">
-							📅
-						</div>
-						<h3 className="mb-3 text-xl font-bold text-primary">Smart Plan</h3>
-						<p className="mb-6 text-sm leading-relaxed text-slate-500">
-							無理のない計画をAIが提案。「今日はここまで」を明確にし、心の負担を減らします。
-						</p>
-						<Link to="/charado/plan" className="inline-flex items-center text-sm font-semibold text-primary decoration-slate-300 underline-offset-4 hover:underline">
-							About Planning <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-						</Link>
-					</div>
-
-					{/* Feature 3: Policy */}
+					{/* Feature 3: Desktop Widget */}
 					<div className="group rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 						<div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-2xl text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-							🛡️
+							🖥️
 						</div>
-						<h3 className="mb-3 text-xl font-bold text-primary">Privacy First</h3>
+						<h3 className="mb-3 text-xl font-bold text-primary">アプリを開かなくても、いつでもタスクリストが確認できる</h3>
 						<p className="mb-6 text-sm leading-relaxed text-slate-500">
-							あなたのデータは安全に保護されます。ローカル保存を基本としたセキュアな設計です。
+							アシスタントと一緒にタスクリストが常にデスクトップにいるので、タスクリストを見落とすこともありません。もちろん、忙しいときにはアシスタントに席を外してもらうこともできます。
 						</p>
-						<Link to="/charado/policy" className="inline-flex items-center text-sm font-semibold text-primary decoration-slate-300 underline-offset-4 hover:underline">
-							Read Policy <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-						</Link>
 					</div>
 
 				</div>

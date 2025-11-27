@@ -4,20 +4,15 @@ import { Breadcrumb } from '@/components/ui/Breadcrumb';
 // データ定義（省略なし）
 const characters = [
 	{
-		id: '01', name: 'Lumina', type: 'Supportive / Cheerful',
-		description: 'あなたの頑張りを肯定し、優しく背中を押してくれるパートナー。',
-		quote: "「その調子！一歩ずつ進んでいきましょう。」", color: '#F59E0B'
+		id: '01', name: 'Tsumugi', type: 'Energetic / Cat-Eared',
+		description: '元気いっぱいの猫耳少女。あなたのタスク管理を全力でサポートしてくれます。',
+		quote: "「お仕事お疲れ様！さあ、次も頑張ろう！」", color: '#F59E0B'
 	},
 	{
-		id: '02', name: 'Raven', type: 'Cool / Calm',
-		description: '感情に流されず、淡々とタスク管理をサポートする参謀タイプ。',
-		quote: "「予定通りです。次のタスクへ移行してください。」", color: '#3B82F6'
+		id: '02', name: 'Noah', type: 'Cool / Black Cat',
+		description: '冷静沈着な黒猫。的確なアドバイスで効率的な進行を助けます。',
+		quote: "「スケジュール通りです。遅れないように。」", color: '#3B82F6'
 	},
-	{
-		id: '03', name: 'Momo', type: 'Relaxed / Healing',
-		description: '焦りは禁物。マイペースに、でも確実に進みたいあなたへ。',
-		quote: "「ちょっと休憩しない？お茶でも飲んでさ。」", color: '#10B981'
-	}
 ];
 
 export const Character: React.FC = () => {
