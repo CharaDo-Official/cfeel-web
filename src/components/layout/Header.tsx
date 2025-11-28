@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logoImg from '@/assets/cfeel_logo_header.png';
+import logoImg from '@/assets/header_logo.svg';
 import { MAIN_NAVIGATION, SOCIAL_LINKS } from '@/constants/navigation';
 
 // --- Style Constants ---
