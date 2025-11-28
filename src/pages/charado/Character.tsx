@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
-import tsumugiTouch from '@/assets/characters/tumugi/タッチ時.webm';
-import tsumugiAdd from '@/assets/characters/tumugi/追加時.webm';
-import tsumugiComplete from '@/assets/characters/tumugi/達成時.webm';
+
+// 動画ファイルを動的にインポート（ファイルが存在しない場合にエラーにならないようにする）
+const videoModules = import.meta.glob('../../assets/characters/tumugi/*.webm', { eager: true }) as Record<string, { default: string }>;
+
+const getVideoSrc = (filename: string) => {
+	const key = `../../assets/characters/tumugi/${filename}`;
+	return videoModules[key]?.default || undefined;
+};
 
 // 動画タイプの定義を拡張
 type VideoType = 'normal'| 'add' | 'complete' | 'entry' | 'exit' | 'touch' ;
@@ -46,9 +51,10 @@ const characters: CharacterData[] = [
 		bgColor: 'bg-amber-50',
 		borderColor: 'border-amber-200',
 		videos: {
-			touch: tsumugiTouch,
-			add: tsumugiAdd,
-			complete: tsumugiComplete,
+			touch: getVideoSrc('タッチ時.webm'),
+			add: getVideoSrc('追加時.webm'),
+			complete: getVideoSrc('達成時.webm'),
+			normal: getVideoSrc('通常時.webm'),
 			// 登場・退場は素材があればここに追加
 		},
 		hasVideo: true
@@ -180,7 +186,7 @@ const CharacterSection: React.FC<{ char: CharacterData; index: number }> = ({ ch
 					<div className="space-y-6 mb-8">
 						{char.description.map((desc, i) => (
 							<p key={i} className="text-slate-600 leading-loose text-sm md:text-base">
-								{desc}
+							{desc}
 							</p>
 						))}
 					</div>
