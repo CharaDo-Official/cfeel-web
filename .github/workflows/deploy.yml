@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # mainブランチまたはdevブランチにpush（マージ）されたら実行
+  # mainブランチにpush（マージ）されたら実行
   push:
-    branches: ["main", "dev"]
+    branches: ["main"]
 
   # GitHubの画面から手動でも実行できるようにする
   workflow_dispatch:
