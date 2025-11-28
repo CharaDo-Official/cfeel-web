@@ -13,8 +13,10 @@ import { Law } from '@/pages/charado/Law';
 import { Terms } from '@/pages/charado/Terms';
 
 function App() {
+	// import.meta.env.BASE_URL には、vite.config.ts の base の値が自動で入ります
+	// 開発時は '/'、本番時は '/cfeel-web/' になります
 	return (
-		<Router>
+		<Router basename={import.meta.env.BASE_URL}>
 			<Header />
 			<Routes>
 				{/* ルートパス (/) にアクセスしたら Home を表示 */}
