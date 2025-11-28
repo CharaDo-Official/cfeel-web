@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import tsumugiNormal from '@/assets/characters/tumugi/通常時.webm';
-import tsumugiTouch from '@/assets/characters/tumugi/タッチ時.webm';
+
+// 動画ファイルを動的にインポート（ファイルが存在しない場合にエラーにならないようにする）
+// eager: true により、import文と同様に即座に読み込まれますが、ファイルがない場合はエントリが作成されません。
+const videoModules = import.meta.glob('../../assets/characters/tumugi/*.webm', { eager: true }) as Record<string, { default: string }>;
+
+// パスからモジュールを取得するヘルパー
+const getVideoSrc = (filename: string) => {
+	const key = `../../assets/characters/tumugi/${filename}`;
+	return videoModules[key]?.default || null;
+};
 
 export const DesktopMascot: React.FC = () => {
 	const [isVisible, setIsVisible] = useState(true);
 	const [isTouching, setIsTouching] = useState(false);
 	const [hasEntered, setHasEntered] = useState(false);
 	
+	// 動画パスの取得
+	const normalVideoSrc = getVideoSrc('通常時.webm');
+	const touchVideoSrc = getVideoSrc('タッチ時.webm');
+
 	// Initialize entry animation after mount
 	useEffect(() => {
 		// Small delay to ensure smooth entry animation after page load
@@ -17,7 +29,7 @@ export const DesktopMascot: React.FC = () => {
 	}, []);
 
 	const handleTouch = () => {
-		if (isTouching) return;
+		if (isTouching || !touchVideoSrc) return; // タッチ動画がない場合は反応しない
 		setIsTouching(true);
 		
 		// Reset to normal video after the touch video duration (approximate)
@@ -25,6 +37,11 @@ export const DesktopMascot: React.FC = () => {
 			setIsTouching(false);
 		}, 4000);
 	};
+
+	// 動画が存在しない場合は何も表示しない（エラー回避）
+	if (!normalVideoSrc) {
+		return null;
+	}
 
 	// Calculate position classes
 	const positionClass = (hasEntered && isVisible) ? 'translate-x-0' : 'translate-x-[120%]';
@@ -48,7 +65,7 @@ export const DesktopMascot: React.FC = () => {
 
 					{/* Normal Video */}
 					<video
-						src={tsumugiNormal}
+						src={normalVideoSrc}
 						autoPlay
 						loop
 						muted
@@ -58,16 +75,18 @@ export const DesktopMascot: React.FC = () => {
 					/>
 					
 					{/* Touch Reaction Video */}
-					<video
-						key={isTouching ? 'playing' : 'stopped'}
-						src={tsumugiTouch}
-						autoPlay={isTouching}
-						loop={false}
-						muted
-						playsInline
-						className={`absolute bottom-0 right-0 max-h-full max-w-full object-contain drop-shadow-xl transition-opacity duration-300 ${isTouching ? 'opacity-100' : 'opacity-0'} pointer-events-none`}
-						draggable={false}
-					/>
+					{touchVideoSrc && (
+						<video
+							key={isTouching ? 'playing' : 'stopped'}
+							src={touchVideoSrc}
+							autoPlay={isTouching}
+							loop={false}
+							muted
+							playsInline
+							className={`absolute bottom-0 right-0 max-h-full max-w-full object-contain drop-shadow-xl transition-opacity duration-300 ${isTouching ? 'opacity-100' : 'opacity-0'} pointer-events-none`}
+							draggable={false}
+						/>
+					)}
 				</div>
 			</div>
 
