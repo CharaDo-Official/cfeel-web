@@ -15,7 +15,7 @@ export const Privacy: React.FC = () => {
 					<p>団体名： CFEEL（任意団体）</p>
 					<p>代表者： 伊藤颯路</p>
 					<p>所在地： 新潟県長岡市上富岡町</p>
-					<p>連絡先： charadoofficial@gmail.com</p>
+					<p>連絡先： cfeel.official@gmail.com</p>
 					<p>電話番号： 請求があれば遅滞なく開示いたします</p>
 				</div>
 			</div>
@@ -62,7 +62,7 @@ export const Privacy: React.FC = () => {
 			<div>
 				<h2 className="font-bold text-slate-900 mb-3">お問い合わせ</h2>
 				<div className="pl-4 border-l-2 border-slate-100 space-y-2">
-					<p>プライバシーポリシーに関するご質問は、<a href="mailto:charadoofficial@gmail.com" className="text-primary hover:underline">charadoofficial@gmail.com</a>までお問い合わせください。</p>
+					<p>プライバシーポリシーに関するご質問は、<a href="mailto:cfeel.official@gmail.com" className="text-primary hover:underline">cfeel.official@gmail.com</a>までお問い合わせください。</p>
 				</div>
 			</div>
 
