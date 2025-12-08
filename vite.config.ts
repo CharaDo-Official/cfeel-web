@@ -10,8 +10,7 @@ export default defineConfig(() => {
     base: '/',
     plugins: [react(), sitemap({
       hostname: 'https://cfeel.net',
-      // 必要であれば動的なルートをここに配列で指定します
-      // dynamicRoutes: ['/about', '/projects'] 
+      dynamicRoutes: ['/charado', '/aboutus', '/support'],
     })],
     resolve: {
       alias: {
