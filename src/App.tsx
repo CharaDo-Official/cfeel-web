@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ScrollToTop from '@/components/utils/ScrollToTop';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Home } from '@/pages/Home';
@@ -17,6 +18,7 @@ function App() {
 	return (
 		<Router basename={import.meta.env.BASE_URL}>
 			<ScrollToTop />
+			<GoogleAnalytics />
 			<Header />
 			<Routes>
 				{/* ルートパス (/) にアクセスしたら Home を表示 */}
