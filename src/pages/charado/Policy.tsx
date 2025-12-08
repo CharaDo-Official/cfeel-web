@@ -1,14 +1,20 @@
 import React from 'react';
 import { DocumentLayout } from '@/components/layout/DocumentLayout';
+import { SEO } from '@/components/seo/SEO';
 
 export const Policy: React.FC = () => {
 	return (
-		<DocumentLayout
-			title="CharaDoポリシー"
-			lastUpdated="2025年11月21日"
-			breadcrumbItems={[{ label: 'Home', path: '/' }, { label: 'CharaDo', path: '/charado' }, { label: 'Policy' }]}
-		>
-			<section>
+		<>
+			<SEO 
+				title="CharaDoポリシー"
+				description="CharaDoが大切にしていること、画像・動画の使用ルール、二次創作ガイドラインなど。"
+			/>
+			<DocumentLayout
+				title="CharaDoポリシー"
+				lastUpdated="2025年11月21日"
+				breadcrumbItems={[{ label: 'Home', path: '/' }, { label: 'CharaDo', path: '/charado' }, { label: 'Policy' }]}
+			>
+				<section>
 				<h2 className="font-bold text-slate-900 text-xl mb-6 border-b border-slate-200 pb-2">CharaDoが大切にしていること</h2>
 				<p className="mb-6 text-slate-600">
 					CharaDoは、あなたの大切な人や好きなものの画像と一緒に、楽しくタスク管理を続けられる体験を提供します。私たちは以下の価値を大切にしています。
@@ -213,5 +219,6 @@ export const Policy: React.FC = () => {
 				</div>
 			</div>
 		</DocumentLayout>
+		</>
 	);
 };

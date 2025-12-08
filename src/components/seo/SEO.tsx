@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
 	title?: string;
@@ -20,14 +21,16 @@ export const SEO: React.FC<SEOProps> = ({
 	siteName = 'CFEEL公式ホームページ',
 	twitterCard = 'summary',
 }) => {
+	useLocation(); // Force re-render on route change
 	const fullTitle = title === 'CFEEL公式ホームページ' ? title : `${title} | CFEEL`;
-	const currentUrl = url || window.location.href;
+	const currentUrl = url || window.location.href.split('?')[0].split('#')[0];
 
 	return (
 		<Helmet>
 			{/* Basic */}
 			<title>{fullTitle}</title>
 			<meta name="description" content={description} />
+			<link rel="canonical" href={currentUrl} />
 
 			{/* OGP */}
 			<meta property="og:url" content={currentUrl} />
@@ -46,4 +49,3 @@ export const SEO: React.FC<SEOProps> = ({
 		</Helmet>
 	);
 };
-

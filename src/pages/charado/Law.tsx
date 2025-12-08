@@ -1,14 +1,20 @@
 import React from 'react';
 import { DocumentLayout } from '@/components/layout/DocumentLayout';
+import { SEO } from '@/components/seo/SEO';
 
 export const Law: React.FC = () => {
 	return (
-		<DocumentLayout
-			title="特定商取引法に基づく表記"
-			lastUpdated="2025年11月27日"
-			breadcrumbItems={[{ label: 'Home', path: '/' }, { label: 'CharaDo', path: '/charado' }, { label: '特定商取引法に基づく表記' }]}
-		>
-			<div className="w-full border-t border-slate-200">
+		<>
+			<SEO 
+				title="特定商取引法に基づく表記"
+				description="CFEELの特定商取引法に基づく表記。販売事業者、連絡先、支払方法など。"
+			/>
+			<DocumentLayout
+				title="特定商取引法に基づく表記"
+				lastUpdated="2025年11月27日"
+				breadcrumbItems={[{ label: 'Home', path: '/' }, { label: 'CharaDo', path: '/charado' }, { label: '特定商取引法に基づく表記' }]}
+			>
+				<div className="w-full border-t border-slate-200">
 				<table className="w-full text-sm text-left text-slate-700">
 					<tbody>
 						<tr className="border-b border-slate-200">
@@ -79,5 +85,6 @@ export const Law: React.FC = () => {
 				</table>
 			</div>
 		</DocumentLayout>
+		</>
 	);
 };

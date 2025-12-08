@@ -1,10 +1,15 @@
 import React from 'react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { SEO } from '@/components/seo/SEO';
 
 // Change export name from AboutHome to Home to match the import in App.tsx
 export const Home: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-slate-50 pb-20">
+			<SEO 
+				title="About Us"
+				description="CFEELのパーパスと組織理念。「頭の中を整理する」を支えるプロダクトを創造します。"
+			/>
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'About Us' }]} />
 
 			{/* Hero / Purpose */}

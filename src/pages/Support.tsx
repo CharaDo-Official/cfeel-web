@@ -1,10 +1,15 @@
 import React from 'react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { SOCIAL_LINKS } from '@/constants/navigation';
+import { SEO } from '@/components/seo/SEO';
 
 export const Support: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-white pb-20">
+			<SEO 
+				title="Support"
+				description="CFEELやCharaDoに関するお問い合わせはこちら。不具合報告やご要望も受け付けています。"
+			/>
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'Support' }]} />
 
 			<div className="container mx-auto px-6 py-20 max-w-2xl text-center">
