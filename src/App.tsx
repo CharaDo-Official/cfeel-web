@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from '@/components/utils/ScrollToTop';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Home } from '@/pages/Home';
@@ -15,6 +16,7 @@ import { Terms } from '@/pages/charado/Terms';
 function App() {
 	return (
 		<Router basename={import.meta.env.BASE_URL}>
+			<ScrollToTop />
 			<Header />
 			<Routes>
 				{/* ルートパス (/) にアクセスしたら Home を表示 */}
