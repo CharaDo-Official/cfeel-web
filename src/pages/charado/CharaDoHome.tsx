@@ -2,10 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { DesktopMascot } from '@/components/ui/DesktopMascot';
+import { SEO } from '@/components/seo/SEO';
 
 export const CharaDoHome: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-white pb-20 font-sans text-slate-800">
+			<SEO 
+				title="CharaDo - タスク管理は大好きなキャラと一緒に"
+				description="CharaDoは、アシスタントがタスクを提案してくれる新感覚デスクトップマスコットです。猫耳の少女「紬」と黒猫「ノア」があなたのタスク管理をサポートします。"
+			/>
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'CharaDo' }]} />
 			<DesktopMascot />
 

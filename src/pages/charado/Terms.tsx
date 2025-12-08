@@ -1,14 +1,20 @@
 import React from 'react';
 import { DocumentLayout } from '@/components/layout/DocumentLayout';
+import { SEO } from '@/components/seo/SEO';
 
 export const Terms: React.FC = () => {
 	return (
-		<DocumentLayout
-			title="利用規約"
-			lastUpdated="2025年11月21日"
-			breadcrumbItems={[{ label: 'Home', path: '/' }, { label: 'CharaDo', path: '/charado' }, { label: '利用規約' }]}
-		>
-			{/* Article 1 */}
+		<>
+			<SEO 
+				title="利用規約"
+				description="CharaDo（本サービス）の利用規約。"
+			/>
+			<DocumentLayout
+				title="利用規約"
+				lastUpdated="2025年11月21日"
+				breadcrumbItems={[{ label: 'Home', path: '/' }, { label: 'CharaDo', path: '/charado' }, { label: '利用規約' }]}
+			>
+				{/* Article 1 */}
 			<div>
 				<h2 className="font-bold text-slate-900 mb-3">第1条（適用範囲）</h2>
 				<p className="pl-4 border-l-2 border-slate-100">
@@ -199,5 +205,6 @@ export const Terms: React.FC = () => {
 				<p>代表：伊藤颯路</p>
 			</div>
 		</DocumentLayout>
+		</>
 	);
 };

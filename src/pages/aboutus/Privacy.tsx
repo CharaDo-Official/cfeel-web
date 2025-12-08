@@ -1,14 +1,20 @@
 import React from 'react';
 import { DocumentLayout } from '@/components/layout/DocumentLayout';
+import { SEO } from '@/components/seo/SEO';
 
 export const Privacy: React.FC = () => {
 	return (
-		<DocumentLayout
-			title="プライバシーポリシー"
-			lastUpdated="2025年11月21日"
-			breadcrumbItems={[{ label: 'Home', path: '/' }, { label: 'About Us', path: '/aboutus' }, { label: 'Privacy Policy' }]}
-		>
-			{/* 事業者情報 */}
+		<>
+			<SEO 
+				title="プライバシーポリシー"
+				description="CFEELのプライバシーポリシー。CharaDoはユーザーの個人情報やタスクデータを一切収集しません。"
+			/>
+			<DocumentLayout
+				title="プライバシーポリシー"
+				lastUpdated="2025年11月21日"
+				breadcrumbItems={[{ label: 'Home', path: '/' }, { label: 'About Us', path: '/aboutus' }, { label: 'Privacy Policy' }]}
+			>
+				{/* 事業者情報 */}
 			<div>
 				<h2 className="font-bold text-slate-900 mb-3">事業者情報</h2>
 				<div className="pl-4 border-l-2 border-slate-100 space-y-1">
@@ -74,5 +80,6 @@ export const Privacy: React.FC = () => {
 				</div>
 			</div>
 		</DocumentLayout>
+		</>
 	);
 };
