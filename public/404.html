@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <script type="text/javascript">
-      // リポジトリ名に合わせて書き換えてください（末尾のスラッシュは不要）
-      var repoName = '/cfeel-web'; 
+      // カスタムドメイン（ルート直下）の場合は repoName は関係ありませんが、念のため空にしておくと分かりやすいです
+      var repoName = ''; 
       
-      var pathSegmentsToKeep = 1; // リポジトリ名の深さ（/cfeel-web なら 1）
+      // ▼ ここを 1 から 0 に変更してください！
+      var pathSegmentsToKeep = 0; // ルート直下（cfeel.net/）なので 0 にする
 
       var l = window.location;
       l.replace(
