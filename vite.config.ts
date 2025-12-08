@@ -3,14 +3,10 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => {
-  // 本番ビルド(production)の時だけリポジトリ名をベースパスにする
-  // 開発時(development)は '/' になる
-  const isProd = mode === 'production'
-  const repoName = '/cfeel-web/' // リポジトリ名に合わせて変更してください
+export default defineConfig(() => {
 
   return {
-    base: isProd ? repoName : '/',
+    base: '/',
     plugins: [react()],
     resolve: {
       alias: {
