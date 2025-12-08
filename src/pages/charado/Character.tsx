@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { SEO } from '@/components/seo/SEO';
 
 // 動画ファイルを動的にインポート（ファイルが存在しない場合にエラーにならないようにする）
 const videoModules = import.meta.glob('../../assets/characters/tumugi/*.webm', { eager: true }) as Record<string, { default: string }>;
@@ -216,6 +217,10 @@ const CharacterSection: React.FC<{ char: CharacterData; index: number }> = ({ ch
 export const Character: React.FC = () => {
 	return (
 		<div className="min-h-screen bg-white pb-20 overflow-x-hidden">
+			<SEO 
+				title="キャラクター"
+				description="CharaDoのキャラクター、紬とノアの紹介ページです。あなたのタスク管理を支えるパートナーたち。"
+			/>
 			<Breadcrumb items={[{ label: 'Home', path: '/' }, { label: 'CharaDo', path: '/charado' }, { label: 'Character' }]} />
 
 			<div className="container mx-auto px-4 py-12 md:py-20">

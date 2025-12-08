@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// トップページにパンくずリストは一般的に不要ですが、もし置くならここに配置
-// import { Breadcrumb } from '@/components/ui/Breadcrumb';
+import { SEO } from '@/components/seo/SEO';
 
 export const Home: React.FC = () => {
 	return (
 		<div className="min-h-screen w-full bg-slate-50 selection:bg-primary selection:text-white">
+			<SEO />
 			
 			{/* Hero Section */}
 			<section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
