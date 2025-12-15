@@ -22,9 +22,7 @@ export const CharaDoHome: React.FC = () => {
 						<span className="text-primary">大好きなキャラ</span>と一緒に。
 					</h1>
 					
-					<p className="text-xl text-slate-400 font-bold mb-12 tracking-wide">
-						（or 大切な人と一緒に！）
-					</p>
+					<p className="text-xl text-slate-400 font-bold mb-12 tracking-wide"></p>
 
 					<p className="text-lg md:text-xl text-slate-600 mb-12 leading-relaxed font-medium">
 						アシスタントがタスクを提案してくれる<br />
